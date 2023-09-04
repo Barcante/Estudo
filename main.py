@@ -85,9 +85,12 @@ turmas = {
     'terca_06PM': Class(andressa.name, 4),
     'terca_07PM': Class(andressa.name, 4),
     'terca_08PM': Class(andressa.name, 4),
+    'quarta_06PM': Class(andressa.name, 4),
+    'quarta_07PM': Class(andressa.name, 2),
     'quinta_11AM': Class(andressa.name, 4),
     'quinta_12AM': Class(andressa.name, 4),
     'quinta_03PM': Class(andressa.name, 2),
+    'sexta_07PM': Class(andressa.name, 2),
     'sexta_08PM': Class(andressa.name, 4),
 }
 
@@ -117,14 +120,45 @@ for day in Agosto:
         if turmas.get(turma):
             agenda.append(Schedule(day, hour, turmas[turma]))
 
-book_class(alunos['Leonor Malheiros'], agenda[0])
-book_class(alunos['Leonor Malheiros'], agenda[4])
-book_class(alunos['Mafalda Amorin'], agenda[0])
-book_class(alunos['Tania Costa'], agenda[0])
-book_class(alunos['Fred Jacob'], agenda[0])
-book_class(alunos['Pedro Campos Costa'], agenda[3])
+book_class(alunos['Luisa Menezes'], agenda[0])
+book_class(alunos['Susana Oliveira'], agenda[0])
+book_class(alunos['Manuela Paquete'], agenda[0])
+book_class(alunos['Marina Ribeiro'], agenda[0])
+book_class(alunos['Leonor Malheiros'], agenda[1])
+book_class(alunos['Mafalda Amorin'], agenda[1])
+book_class(alunos['Tania Costa'], agenda[1])
+book_class(alunos['Fred Jacob'], agenda[1])
+book_class(alunos['Maria Joao Lima'], agenda[2])
+book_class(alunos['Maria Joao Moreira'], agenda[2])
+book_class(alunos['Julieta Gama'], agenda[2])
+book_class(alunos['Gabi Jardim'], agenda[2])
+book_class(alunos['Isabel Lage'], agenda[3])
+book_class(alunos['Sara Ferreira'], agenda[3])
+book_class(alunos['Odete Almeida'], agenda[3])
+book_class(alunos['Claudia Mendes'], agenda[4])
+book_class(alunos['Rosa Gouveia'], agenda[5])
+book_class(alunos['Maria Isilda Belo'], agenda[5])
+book_class(alunos['Silas Grigoleto'], agenda[5])
+book_class(alunos['Isabel Teixeira'], agenda[5])
+book_class(alunos['Isabel Xavier'], agenda[6])
+book_class(alunos['Analia Neiva'], agenda[6])
+book_class(alunos['Eduarda Pereira'], agenda[6])
+book_class(alunos['Luisa Carvalho'], agenda[7])
+book_class(alunos['Claudia Mendes'], agenda[8])
+book_class(alunos['Julieta Gama'], agenda[9])
+book_class(alunos['Rafael Chacon'], agenda[9])
+book_class(alunos['Francisco Aires'], agenda[9])
+book_class(alunos['Debora Levi'], agenda[9])
+book_class(alunos['Filipa Coelho'], agenda[10])
+book_class(alunos['Jorge Coelho'], agenda[10])
+book_class(alunos['Pedro Machado'], agenda[11])
+book_class(alunos['Gabi Jardim'], agenda[11])
+book_class(alunos['Marcos Silva'], agenda[11])
+book_class(alunos['Joao Cunha'], agenda[11])
+book_class(alunos['Pedro Campos Costa'], agenda[12])
+book_class(alunos['Leonor Malheiros'], agenda[13])
 
-client_was_absent(alunos['Leonor Malheiros'], agenda[0])
+client_was_absent(alunos['Leonor Malheiros'], agenda[1])
 
 total_mes = 0
 
@@ -139,7 +173,7 @@ for s in agenda:
 
     total_mes += earnings
 
-    print(s.date, s.time, f'€ {earnings},00')
+    print(s.date, Agosto[s.date], s.time, f'€ {earnings},00')
     [print('\t', client.name if client not in s.absence else f'f|{client.name}') for client in s.class_instance.enrolled_clients]
 
 print(f'\n\n\nTotal do mes: € {total_mes},00')
